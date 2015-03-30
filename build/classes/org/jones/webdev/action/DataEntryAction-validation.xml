@@ -1,0 +1,13 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="os">
+		<field-validator type="requiredstring">
+			<message>You must enter an operating system</message>
+		</field-validator>
+	</field>
+	<field name="osVer">
+		<field-validator type="requiredstring">
+			<message>You must enter an operating system name</message>
+		</field-validator>
+	</field>
+</validators>

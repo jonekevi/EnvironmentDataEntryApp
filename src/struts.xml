@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>    
+	<constant name="struts.mapper.action.prefix.enabled" value="true" />
+	<package name="default" namespace="/" extends="struts-default"> 
+		<action name="enterData" class="org.jones.webdev.action.DataEntryAction" method="submit">
+			<result name="success">/searchForm.jsp</result>
+			<result name="failure">/error.jsp</result>
+			<result name="input">/searchForm.jsp</result>
+		</action>
+		<action name="skipData" class="org.jones.webdev.action.DataEntryAction" method="skipData">
+			<interceptor-ref name="params"/>
+    			<interceptor-ref name="validation">
+        			<param name="excludeMethods">skipData</param>
+    			</interceptor-ref>
+    		<interceptor-ref name="workflow"/>
+			<result type="chain">viewTable</result>
+		</action>
+		<action name="viewTable" class="org.jones.webdev.action.ViewTableAction">
+			<result name="success">/viewTable.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="return"><result>/searchForm.jsp</result></action>
+	</package>
+</struts>
