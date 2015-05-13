@@ -5,8 +5,12 @@
 <struts>    
 	<constant name="struts.mapper.action.prefix.enabled" value="true" />
 	<package name="default" namespace="/" extends="struts-default"> 
-		<action name="enterData" class="org.jones.webdev.action.DataEntryAction" method="submit">
+		<action name="getLogin" class="org.jones.webdev.action.GetLoginAction">
+			<result name="input">/index.jsp</result>
 			<result name="success">/searchForm.jsp</result>
+		</action>
+		<action name="enterData" class="org.jones.webdev.action.DataEntryAction" method="submit">
+			<result name="success" type="chain">viewTable</result>
 			<result name="failure">/error.jsp</result>
 			<result name="input">/searchForm.jsp</result>
 		</action>

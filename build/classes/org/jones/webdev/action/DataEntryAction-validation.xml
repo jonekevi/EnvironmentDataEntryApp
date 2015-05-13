@@ -4,10 +4,24 @@
 		<field-validator type="requiredstring">
 			<message>You must enter an operating system</message>
 		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">30</param>
+			<message>Operating system can't exceed 30 characters.</message>
+		</field-validator>
 	</field>
 	<field name="osVer">
 		<field-validator type="requiredstring">
 			<message>You must enter an operating system name</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">30</param>
+			<message>Operating system version can't exceed 30 characters.</message>
+		</field-validator>
+	</field>
+	<field name="notes">
+		<field-validator type="stringlength">
+			<param name="maxLength">200</param>
+			<message>Notes can't exceed 200 characters.</message>
 		</field-validator>
 	</field>
 </validators>
